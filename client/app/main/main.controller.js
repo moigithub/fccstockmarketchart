@@ -2,28 +2,29 @@
 
 angular.module('basej3App')
   .controller('MainCtrl', function ($scope, $http, socket) {
-/*    
-    $scope.awesomeThings = [];
 
-    $http.get('/api/things').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
-      socket.syncUpdates('thing', $scope.awesomeThings);
+    $scope.symbols = [];
+    $scope.newSymbol = '';
+
+    $http.get('/api/symbols').success(function(symbols) {
+      $scope.symbols = symbols;
+      socket.syncUpdates('symbol', $scope.symbols);
     });
 
-    $scope.addThing = function() {
-      if($scope.newThing === '') {
+    $scope.addSymbol = function() {
+      if($scope.newSymbol === '') {
         return;
       }
-      $http.post('/api/things', { name: $scope.newThing });
-      $scope.newThing = '';
+      $http.post('/api/symbols', { name: $scope.newSymbol.toUpperCase() });
+      $scope.newSymbol = '';
     };
 
-    $scope.deleteThing = function(thing) {
-      $http.delete('/api/things/' + thing._id);
+    $scope.deleteSymbol = function(symbol) {
+      $http.delete('/api/symbols/' + symbol._id);
     };
 
     $scope.$on('$destroy', function () {
-      socket.unsyncUpdates('thing');
+      socket.unsyncUpdates('symbol');
     });
-*/    
+
   });

@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('basej3App')
-  .controller('SettingsCtrl', function ($scope, User, Auth) {
+  .controller('SettingsCtrl', SettingsCtrl);
+function SettingsCtrl($scope, User, Auth) {
     $scope.errors = {};
 
     $scope.changePassword = function(form) {
@@ -18,4 +19,6 @@ angular.module('basej3App')
         });
       }
 		};
-  });
+  }
+
+SettingsCtrl.$inject=['$scope', 'User', 'Auth'];

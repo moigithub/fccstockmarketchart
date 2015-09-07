@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('basej3App')
-  .controller('SignupCtrl', function ($scope, Auth, $location, $window) {
+  .controller('SignupCtrl', SignupCtrl);
+function SignupCtrl($scope, Auth, $location, $window) {
     $scope.user = {};
     $scope.errors = {};
 
@@ -34,4 +35,6 @@ angular.module('basej3App')
     $scope.loginOauth = function(provider) {
       $window.location.href = '/auth/' + provider;
     };
-  });
+  }
+
+SignupCtrl.$inject=['$scope', 'Auth', '$location', '$window'];

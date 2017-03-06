@@ -12,8 +12,8 @@ angular.module('basej3App')
 		getData: function(names){
 			var url1= "https://query.yahooapis.com/v1/public/yql?q=",
 			  select="select * from yahoo.finance.historicaldata where symbol in ("+names.join(",")+")",
-			  startDate="2015-01-01",
 			  curdate= new Date,
+			  startDate= (curdate.getFullYear()-1)+"-01-01",
 			  endDate= curdate.getFullYear()+"-"+curdate.getMonth()+"-"+curdate.getDay(),
 			  url2=encodeURIComponent(select+" and startDate='"+startDate+"' and endDate='"+endDate+"'"),
 			  url3="&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys"; //&callback=
